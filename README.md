@@ -25,7 +25,7 @@ Opciones:
 
 ## Dependencias
 
-El script utiliza la herramienta `pup` de forma temporal, se encuentra en los repositorios oficiales de debian.
+El script utiliza la herramienta `pup` de forma temporal. Esta se encuentra en los repositorios oficiales de debian.
 
 ```
 $ sudo apt install pup
