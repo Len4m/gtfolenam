@@ -23,8 +23,17 @@ Opciones:
 
 **Atención**: Esta herramienta es de uso personal y para ser utilizada exclusivamente en entornos controlados. No nos hacemos responsables del mal uso o funcionamiento de la misma.
 
+## Dependencias
+
+El script utiliza la herramienta `pup` de forma temporal, se encuentra en los repositorios oficiales de debian.
+
+```
+$ sudo apt install pup
+``` 
+
 ## Futuras ideas:
 - [ ] Filtrar binarios conocidos para eliminar las peticiones innecesarias a GTFOBins.
+- [ ] Quitar la dependencia de `pup`.
 - [ ] Comprobar también los binarios dentro de `doas`.
 - [ ] Parámetro para mostrar los binarios aunque no estén en GTFOBins.
 - [ ] Parámetro para la ejecución directa de los ejemplos
