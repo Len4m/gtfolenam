@@ -130,7 +130,7 @@ function scan_files() {
     for file in "${files[@]}"; do
         if evaluate_file "$file" "$type"; then
             echo_green "$file"  # Siempre mostrar en verde si evalúa a true
-            echo $baseurl$(basename "$file")#$type # imrimimos URL.
+            echo $baseurl$(basename "$file")'#'$type # imrimimos URL.
         else
             if [ $verbose -eq 1 ]; then
                 echo_red "$file"  # Mostrar en rojo solo en modo verbose si evalúa a false
