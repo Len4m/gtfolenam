@@ -25,7 +25,7 @@ Opciones:
 
 ## Dependencias
 
-El script utiliza la herramienta `pup` de forma temporal. Esta se encuentra en los repositorios oficiales de debian.
+Solo se requiere el binario `grep`.
 
 ```
 $ sudo apt install pup
