@@ -1,10 +1,22 @@
 #!/bin/bash
 
+
+# Variables
+verbose=0
+scan_types="sudo,suid,capabilities"
+baseurl="https://gtfobins.github.io/gtfobins/"
+# Ficheros que necesitan SUID normalmente para funcionar.
+suid_files="passwd sudo su chsh chfn gpasswd newgrp"
+html_content=
+
 # Función para manejar la señal de Ctrl+C
 trap ctrl_c INT
 
 function ctrl_c() {
     echo -e "\n\e[31mProceso interrumpido por el usuario.\e[0m"
+    if [[ -n "$html_content" && -f "$html_content" ]]; then
+        rm "$html_content"
+    fi
     exit 1
 }
 
@@ -38,8 +50,6 @@ function show_help() {
     exit 0
 }
 
-baseurl="https://gtfobins.github.io/gtfobins/"
-
 # Función para evaluar cada archivo
 function evaluate_file() {
     local file=$1
@@ -47,6 +57,15 @@ function evaluate_file() {
 
     # Obtener solo el nombre del binario sin el path completo
     local binary_name=$(basename "$file")
+
+    # Comprobando si es SUID y se encuntra en suid_files
+    if [[ "$type" == "suid" && " $suid_files " =~ " $binary_name " ]]; then
+        if [ $verbose -eq 1 ]; then
+            echo "$binary_name está en la lista de suid_files."
+        fi
+        return 1
+    fi
+
 
     # Mostrar información solo si estamos en modo verbose
     if [ $verbose -eq 1 ]; then
@@ -58,7 +77,7 @@ function evaluate_file() {
 
     # Obtener el contenido HTML con curl y capturar el código de estado HTTP
     local http_status
-    local html_content
+    
     html_content=$(mktemp)
     http_status=$(curl -s -w "%{http_code}" -o "$html_content" "$url")
 
@@ -81,11 +100,6 @@ function evaluate_file() {
     rm "$html_content"
     return 1
 }
-
-
-# Variables
-verbose=0
-scan_types="sudo,suid,capabilities"
 
 # Parseo de opciones
 while getopts "vht:" opt; do
@@ -134,7 +148,6 @@ function scan_files() {
         else
             if [ $verbose -eq 1 ]; then
                 echo_red "$file"  # Mostrar en rojo solo en modo verbose si evalúa a false
-                
             fi
         fi
     done
