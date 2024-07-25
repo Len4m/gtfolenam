@@ -25,10 +25,10 @@ Opciones:
 
 ## Dependencias
 
-Utiliza `curl` para realizar la petición a [GTFOBins](https://gtfobins.github.io/) y `grep` para filtrar el resultado.
+Utiliza `curl` para realizar la petición a [GTFOBins](https://gtfobins.github.io/), `grep` y `awk` para filtrar el resultado.
 
 ```
-$ sudo apt install curl grep
+$ sudo apt install curl grep awk
 ``` 
 
 ## Futuras ideas:

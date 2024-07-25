@@ -134,7 +134,7 @@ function scan_files() {
 
     declare -a files
     mapfile -t files < <($find_command 2>/dev/null)
-
+    
     echo_purple "\nArchivos con ${find_desc}:"
     for file in "${files[@]}"; do
         if evaluate_file "$file" "$type"; then
@@ -147,12 +147,12 @@ function scan_files() {
         fi
     done
 }
-
+set +H
 # Ejecutar escaneos según los tipos especificados
 for type in "${types[@]}"; do
     case $type in
     sudo)
-        scan_files "sudo" "sudo -l | grep -E 'NOPASSWD|PASSWD' | awk '{print $NF}' | sort -u" "sudo"
+         scan_files "sudo" 'eval sudo -l -l | awk '\''/Commands:/ { in_commands=1; next } in_commands && /^[^ ]/ { if ($0 !~ /ALL$/ && $0 !~ /Sudoers/) { gsub(/^[ \t]+/, "", $0); gsub(/[ \t]+$/, "", $0); split($0, a, " "); print a[1]; } }'\''' "sudo"
         ;;
     capabilities)
         scan_files "capabilities" "getcap -r /" "capabilities"
