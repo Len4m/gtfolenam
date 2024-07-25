@@ -28,13 +28,13 @@ Opciones:
 Utiliza `curl` para realizar la petición a [GTFOBins](https://gtfobins.github.io/), `grep` y `awk` para filtrar el resultado.
 
 ```
-$ sudo apt install curl grep awk
+$ sudo apt install curl grep gawk
 ``` 
 
 ## Futuras ideas:
 - [x] Filtrar binarios conocidos para eliminar las peticiones innecesarias a GTFOBins.
 - [x] Quitar la dependencia de `pup`.
-- [ ] Comprobar si existe el binario `curl` o `wget` para realizar la petición.
+- [x] Comprobar si existe el binario `curl` o `wget` para realizar la petición.
 - [ ] Comprobar si existe el binario `grep` o `awk` para filtrar la petición.
 - [ ] Comprobar también los binarios dentro de `doas`.
 - [ ] Parámetro para mostrar los binarios aunque no estén en GTFOBins.

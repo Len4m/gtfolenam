@@ -8,6 +8,15 @@ baseurl="https://gtfobins.github.io/gtfobins/"
 suid_files="passwd sudo su chsh chfn gpasswd newgrp"
 html_content=
 
+if command -v curl >/dev/null; then
+    downloader="curl"
+elif command -v wget >/dev/null; then
+    downloader="wget"
+else
+    echo "Error: No está instalado ni curl ni wget."
+    exit 1
+fi
+
 # Función para manejar la señal de Ctrl+C
 trap ctrl_c INT
 
@@ -77,7 +86,12 @@ function evaluate_file() {
     local http_status
 
     html_content=$(mktemp)
-    http_status=$(curl -s -w "%{http_code}" -o "$html_content" "$url")
+
+    if [ "$downloader" = "curl" ]; then
+        http_status=$(curl -s -w "%{http_code}" -o "$html_content" "$url")
+    elif [ "$downloader" = "wget" ]; then
+        http_status=$(wget -q --server-response -O "$html_content" "$url" 2>&1 | awk '/^  HTTP/{print $2}' | tail -n 1)
+    fi
 
     # Comprobar el código de estado HTTP
     if [ "$http_status" -eq 200 ]; then
@@ -134,7 +148,7 @@ function scan_files() {
 
     declare -a files
     mapfile -t files < <($find_command 2>/dev/null)
-    
+
     echo_purple "\nArchivos con ${find_desc}:"
     for file in "${files[@]}"; do
         if evaluate_file "$file" "$type"; then
@@ -152,7 +166,7 @@ set +H
 for type in "${types[@]}"; do
     case $type in
     sudo)
-         scan_files "sudo" 'eval sudo -l -l | awk '\''/Commands:/ { in_commands=1; next } in_commands && /^[^ ]/ { if ($0 !~ /ALL$/ && $0 !~ /Sudoers/) { gsub(/^[ \t]+/, "", $0); gsub(/[ \t]+$/, "", $0); split($0, a, " "); print a[1]; } }'\''' "sudo"
+        scan_files "sudo" 'eval sudo -l -l | awk '\''/Commands:/ { in_commands=1; next } in_commands && /^[^ ]/ { if ($0 !~ /ALL$/ && $0 !~ /Sudoers/) { gsub(/^[ \t]+/, "", $0); gsub(/[ \t]+$/, "", $0); split($0, a, " "); print a[1]; } }'\''' "sudo"
         ;;
     capabilities)
         scan_files "capabilities" "getcap -r /" "capabilities"
