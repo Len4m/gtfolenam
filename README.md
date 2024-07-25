@@ -33,7 +33,7 @@ $ sudo apt install pup
 
 ## Futuras ideas:
 - [x] Filtrar binarios conocidos para eliminar las peticiones innecesarias a GTFOBins.
-- [ ] Quitar la dependencia de `pup`.
+- [x] Quitar la dependencia de `pup`.
 - [ ] Comprobar también los binarios dentro de `doas`.
 - [ ] Parámetro para mostrar los binarios aunque no estén en GTFOBins.
 - [ ] Parámetro para la ejecución directa de los ejemplos

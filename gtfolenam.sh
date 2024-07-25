@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 # Variables
 verbose=0
 scan_types="sudo,suid,capabilities"
@@ -66,7 +65,6 @@ function evaluate_file() {
         return 1
     fi
 
-
     # Mostrar información solo si estamos en modo verbose
     if [ $verbose -eq 1 ]; then
         echo "** Evaluando: $binary_name"
@@ -77,17 +75,14 @@ function evaluate_file() {
 
     # Obtener el contenido HTML con curl y capturar el código de estado HTTP
     local http_status
-    
+
     html_content=$(mktemp)
     http_status=$(curl -s -w "%{http_code}" -o "$html_content" "$url")
 
     # Comprobar el código de estado HTTP
     if [ "$http_status" -eq 200 ]; then
         # Comprobar si existe una etiqueta <h2> con el id igual a $type
-        local h2_exists
-        h2_exists=$(pup "h2[id=\"$type\"]" < "$html_content")
-       
-        if [ -n "$h2_exists" ]; then
+        if grep -qP '<h2[^>]*\bid="'$type'"[^>]*>' "$html_content"; then
             rm "$html_content"
             return 0
         fi
@@ -104,18 +99,18 @@ function evaluate_file() {
 # Parseo de opciones
 while getopts "vht:" opt; do
     case ${opt} in
-        v )
-            verbose=1
-            ;;
-        h )
-            show_help
-            ;;
-        t )
-            scan_types=${OPTARG}
-            ;;
-        \? )
-            show_help
-            ;;
+    v)
+        verbose=1
+        ;;
+    h)
+        show_help
+        ;;
+    t)
+        scan_types=${OPTARG}
+        ;;
+    \?)
+        show_help
+        ;;
     esac
 done
 
@@ -125,7 +120,7 @@ if [[ $scan_types == *=* ]]; then
 fi
 
 # Convertir el parámetro -t en un array
-IFS=',' read -r -a types <<< "$scan_types"
+IFS=',' read -r -a types <<<"$scan_types"
 
 # Función para escanear y mostrar archivos de acuerdo con el tipo
 function scan_files() {
@@ -143,11 +138,11 @@ function scan_files() {
     echo_purple "\nArchivos con ${find_desc}:"
     for file in "${files[@]}"; do
         if evaluate_file "$file" "$type"; then
-            echo_green "$file"  # Siempre mostrar en verde si evalúa a true
+            echo_green "$file"                       # Siempre mostrar en verde si evalúa a true
             echo $baseurl$(basename "$file")'#'$type # imrimimos URL.
         else
             if [ $verbose -eq 1 ]; then
-                echo_red "$file"  # Mostrar en rojo solo en modo verbose si evalúa a false
+                echo_red "$file" # Mostrar en rojo solo en modo verbose si evalúa a false
             fi
         fi
     done
@@ -156,17 +151,17 @@ function scan_files() {
 # Ejecutar escaneos según los tipos especificados
 for type in "${types[@]}"; do
     case $type in
-        sudo)
-            scan_files "sudo" "sudo -l | grep -E 'NOPASSWD|PASSWD' | awk '{print $NF}' | sort -u" "sudo"
-            ;;
-        capabilities)
-            scan_files "capabilities" "getcap -r /" "capabilities"
-            ;;
-        suid)
-            scan_files "suid" "find / -perm -4000" "SUID"
-            ;;
-        *)
-            echo -e "\e[31mTipo de escaneo desconocido: $type\e[0m"
-            ;;
+    sudo)
+        scan_files "sudo" "sudo -l | grep -E 'NOPASSWD|PASSWD' | awk '{print $NF}' | sort -u" "sudo"
+        ;;
+    capabilities)
+        scan_files "capabilities" "getcap -r /" "capabilities"
+        ;;
+    suid)
+        scan_files "suid" "find / -perm -4000" "SUID"
+        ;;
+    *)
+        echo -e "\e[31mTipo de escaneo desconocido: $type\e[0m"
+        ;;
     esac
 done
