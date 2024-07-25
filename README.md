@@ -25,15 +25,17 @@ Opciones:
 
 ## Dependencias
 
-Solo se requiere el binario `grep`.
+Utiliza `curl` para realizar la petición a [GTFOBins](https://gtfobins.github.io/) y `grep` para filtrar el resultado.
 
 ```
-$ sudo apt install grep
+$ sudo apt install curl grep
 ``` 
 
 ## Futuras ideas:
 - [x] Filtrar binarios conocidos para eliminar las peticiones innecesarias a GTFOBins.
 - [x] Quitar la dependencia de `pup`.
+- [ ] Comprobar si existe el binario `curl` o `wget` para realizar la petición.
+- [ ] Comprobar si existe el binario `grep` o `awk` para filtrar la petición.
 - [ ] Comprobar también los binarios dentro de `doas`.
 - [ ] Parámetro para mostrar los binarios aunque no estén en GTFOBins.
 - [ ] Parámetro para la ejecución directa de los ejemplos
