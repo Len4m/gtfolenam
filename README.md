@@ -28,7 +28,7 @@ Opciones:
 Solo se requiere el binario `grep`.
 
 ```
-$ sudo apt install pup
+$ sudo apt install grep
 ``` 
 
 ## Futuras ideas:
