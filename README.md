@@ -1,6 +1,6 @@
 # GTFOLenam
 
-![GTFOLenam execution](image.png)
+![GTFOLenam execution](image.png | width=250)
 
 ```bash
 ./gtfolenam.sh [-v] [-h] [-t=sudo,capabilities,...]
