@@ -24,6 +24,13 @@ Opciones:
         Opciones válidas: sudo, suid, capabilities.
         Por defecto, se escanean todos los tipos si no se especifica.
 ```
+## Instalación
+
+En una carpeta con permisos de escritura.
+
+```
+wget https://raw.githubusercontent.com/Len4m/gtfolenam/main/gtfolenam.sh && chmod +x gtfolenam.sh
+```
 
 ## Dependencias
 
