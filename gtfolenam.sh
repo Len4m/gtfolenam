@@ -169,7 +169,7 @@ for type in "${types[@]}"; do
         scan_files "sudo" 'eval sudo -l -l | awk '\''/Commands:/ { in_commands=1; next } in_commands && /^[^ ]/ { if ($0 !~ /ALL$/ && $0 !~ /Sudoers/) { gsub(/^[ \t]+/, "", $0); gsub(/[ \t]+$/, "", $0); split($0, a, " "); print a[1]; } }'\''' "sudo"
         ;;
     capabilities)
-        scan_files "capabilities" "getcap -r /" "capabilities"
+        scan_files "capabilities" "eval getcap -r / | awk '{print \$1}'" "capabilities"
         ;;
     suid)
         scan_files "suid" "find / -perm -4000" "SUID"
