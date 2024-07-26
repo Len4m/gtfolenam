@@ -1,4 +1,6 @@
-# gtfolenam.sh
+# GTFOLenam
+
+![GTFOLenam execution](image.png)
 
 ```bash
 ./gtfolenam.sh [-v] [-h] [-t=sudo,capabilities,...]

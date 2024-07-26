@@ -1,11 +1,14 @@
 #!/bin/bash
 
+# Banner
+echo ICAgX19fX19fX19fX19fX19fX19fX19fXyAgX18gICAgICAgICAgICAgICAgICAgICAgICAgICAgIA0KICAvIF9fX18vXyAgX18vIF9fX18vIF9fIFwvIC8gICBfX18gIF9fX18gIF9fX18gX19fX18gX19fIA0KIC8gLyBfXyAgLyAvIC8gL18gIC8gLyAvIC8gLyAgIC8gXyBcLyBfXyBcLyBfXyBgLyBfXyBgX18gXA0KLyAvXy8gLyAvIC8gLyBfXy8gLyAvXy8gLyAvX19fLyAgX18vIC8gLyAvIC9fLyAvIC8gLyAvIC8gLw0KXF9fX18vIC9fLyAvXy8gICAgXF9fX18vX19fX18vXF9fXy9fLyAvXy9cX18sXy9fLyAvXy8gL18vIA==| base64 -d
+echo -e "\nEscáner automático de binarios en GTFOBins"
+
 # Variables
 verbose=0
 scan_types="sudo,suid,capabilities"
 baseurl="https://gtfobins.github.io/gtfobins/"
-# Ficheros que necesitan SUID normalmente para funcionar.
-suid_files="passwd sudo su chsh chfn gpasswd newgrp"
+suid_files="passwd sudo su chsh chfn gpasswd newgrp" # Ficheros que necesitan SUID normalmente para funcionar.
 html_content=
 
 if command -v curl >/dev/null; then
@@ -161,7 +164,7 @@ function scan_files() {
         fi
     done
 }
-set +H
+
 # Ejecutar escaneos según los tipos especificados
 for type in "${types[@]}"; do
     case $type in
