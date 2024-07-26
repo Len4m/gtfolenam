@@ -44,7 +44,7 @@ It uses `curl` or `wget`, whichever is available on the system, to make the requ
 $ sudo apt install curl grep gawk
 ``` 
 
-## Futuras ideas
+## Future Ideas
 - [x] Filter known binaries to eliminate unnecessary requests to GTFOBins.
 - [x] Remove dependency on `pup`.
 - [x] Check if the `curl` or `wget` binary exists to make the request.
