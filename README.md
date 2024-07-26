@@ -28,7 +28,7 @@ Opciones:
 
 ## Dependencias
 
-Utiliza `curl` para realizar la petición a [GTFOBins](https://gtfobins.github.io/), `grep` y `awk` para filtrar el resultado.
+Utiliza `curl` o `wget`, lo que esté en el sistema, para realizar la petición a [GTFOBins](https://gtfobins.github.io/), y usa `grep` y `awk` para filtrar el resultado.
 
 ```
 $ sudo apt install curl grep gawk
