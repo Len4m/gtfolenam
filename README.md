@@ -11,7 +11,8 @@ Herramienta de uso personal para la enumeración de posibles vectores para la el
 
 Se escanean los binarios del sistema `sudo`, `suid` o con `capabilities` y se comprueba si existen en la web de [GTFOBins](https://gtfobins.github.io/). Si el binario existe, se muestra un enlace a la información.
 
-Ayuda
+## Ayuda
+
 ```
 $ ./gtfolenam.sh -h
 Uso: ./gtfolenam.sh [-v] [-h] [-t=tipo1,tipo2,...]
@@ -24,8 +25,6 @@ Opciones:
         Por defecto, se escanean todos los tipos si no se especifica.
 ```
 
-**Atención**: Esta herramienta es de uso personal y para ser utilizada exclusivamente en entornos controlados. No nos hacemos responsables del mal uso o funcionamiento de la misma.
-
 ## Dependencias
 
 Utiliza `curl` o `wget`, lo que esté en el sistema, para realizar la petición a [GTFOBins](https://gtfobins.github.io/), y usa `grep` y `awk` para filtrar el resultado.
@@ -34,7 +33,7 @@ Utiliza `curl` o `wget`, lo que esté en el sistema, para realizar la petición 
 $ sudo apt install curl grep gawk
 ``` 
 
-## Futuras ideas:
+## Futuras ideas
 - [x] Filtrar binarios conocidos para eliminar las peticiones innecesarias a GTFOBins.
 - [x] Quitar la dependencia de `pup`.
 - [x] Comprobar si existe el binario `curl` o `wget` para realizar la petición.
@@ -43,3 +42,7 @@ $ sudo apt install curl grep gawk
 - [ ] Parámetro para la ejecución directa de los ejemplos.
 - [ ] Parámetro para mostrar el usuario al que se le adquieren los privilegios.
 - [ ] Comprobar también los binarios dentro de `doas`, actualmente no están en GTFOBins.
+
+## Advertencia Legal
+
+Este software está diseñado únicamente para uso personal y debe emplearse exclusivamente en entornos controlados y autorizados. El uso de esta herramienta en sistemas o redes sin la debida autorización puede ser ilegal y violar políticas de seguridad. El desarrollador no asume ninguna responsabilidad por daños, pérdidas o consecuencias derivadas de su uso indebido o no autorizado. Asegúrate de cumplir con todas las leyes y regulaciones locales aplicables antes de utilizar esta herramienta.
