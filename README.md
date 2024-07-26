@@ -32,7 +32,7 @@ En una carpeta con permisos de escritura.
 wget https://raw.githubusercontent.com/Len4m/gtfolenam/main/gtfolenam.sh && chmod +x gtfolenam.sh
 ```
 
-## Dependencias
+### Dependencias
 
 Utiliza `curl` o `wget`, lo que esté en el sistema, para realizar la petición a [GTFOBins](https://gtfobins.github.io/), y usa `grep` y `awk` para filtrar el resultado.
 
