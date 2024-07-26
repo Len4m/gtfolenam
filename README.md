@@ -1,6 +1,7 @@
 # GTFOLenam
 
-![](image.png | width=250)
+
+<img src="image.png" width="350" alt="GTFOLenam scanner" style="margin-left:auto;margin-right:auto">
 
 ```bash
 ./gtfolenam.sh [-v] [-h] [-t=sudo,capabilities,...]
