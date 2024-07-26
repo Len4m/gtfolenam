@@ -1,6 +1,8 @@
-# GTFOLenam
+![GitHub License](https://img.shields.io/github/license/len4m/gtfolenam?style=flat-square)
+[![es](https://img.shields.io/badge/README-es-red.svg?style=flat-square)](https://github.com/len4m/gtfolenam/)
+[![en](https://img.shields.io/badge/README-en-yellow.svg?style=flat-square)](https://github.com/Len4m/gtfolenam/blob/main/README.en.md)
 
-![GitHub License](https://img.shields.io/github/license/len4m/gtfolenam?style=for-the-badge)
+# GTFOLenam
 
 <img src="image.png" width="500" alt="GTFOLenam scanner" style="margin-left:auto;margin-right:auto">
 
