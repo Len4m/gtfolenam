@@ -1,5 +1,6 @@
 # GTFOLenam
 
+![GitHub License](https://img.shields.io/github/license/len4m/gtfolenam?style=for-the-badge)
 
 <img src="image.png" width="500" alt="GTFOLenam scanner" style="margin-left:auto;margin-right:auto">
 
