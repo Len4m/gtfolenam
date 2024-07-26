@@ -39,6 +39,7 @@ $ sudo apt install curl grep gawk
 - [x] Quitar la dependencia de `pup`.
 - [x] Comprobar si existe el binario `curl` o `wget` para realizar la petición.
 - [ ] Comprobar si existe el binario `grep` o `awk` para filtrar la petición.
-- [ ] Comprobar también los binarios dentro de `doas`.
 - [ ] Parámetro para mostrar los binarios aunque no estén en GTFOBins.
-- [ ] Parámetro para la ejecución directa de los ejemplos
+- [ ] Parámetro para la ejecución directa de los ejemplos.
+- [ ] Parámetro para mostrar el usuario al que se le adquieren los privilegios.
+- [ ] Comprobar también los binarios dentro de `doas`, actualmente no están en GTFOBins.
