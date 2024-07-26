@@ -1,0 +1,675 @@
+LLICÈNCIA PÚBLICA GENERAL GNU
+                        Versió 3, 29 de juny de 2007
+
+  Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
+  Tothom té permís per copiar i distribuir còpies textuals
+  d'aquest document de llicència, però no es permet canviar-lo.
+
+                             Preàmbul
+
+   La Llicència Pública General de GNU és una llicència gratuïta i copyleft per a
+ programari i altres tipus d'obres.
+
+   Es dissenyen les llicències per a la majoria de programari i altres treballs pràctics
+ per treure't la llibertat de compartir i canviar les obres.  Per contra,
+ la Llicència Pública General de GNU pretén garantir la vostra llibertat
+ compartiu i canvieu totes les versions d'un programa per assegurar-vos que segueixi sent gratuït
+ programari per a tots els seus usuaris.  Nosaltres, la Free Software Foundation, fem servir el
+ Llicència pública general GNU per a la majoria del nostre programari;  també s'aplica a
+ qualsevol altra obra publicada així pels seus autors.  Pots aplicar-ho a
+ els teus programes també.
+
+   Quan parlem de programari lliure, ens referim a la llibertat, no
+ preu.  Les nostres llicències públiques generals estan dissenyades per assegurar-vos que vostè
+ tenir la llibertat de distribuir còpies de programari lliure (i cobrar per
+ si ho voleu), que rebeu el codi font o que el podeu obtenir si ho feu
+ ho desitgeu, que podeu canviar el programari o utilitzar-ne peces en nou
+ programes gratuïts i que sabeu que podeu fer aquestes coses.
+
+   Per protegir els vostres drets, hem d'evitar que altres us neguin
+ aquests drets o demanant-li que renunciïs als drets.  Per tant, tens
+ determinades responsabilitats si distribuïu còpies del programari, o si
+ tu el modifiques: responsabilitats de respectar la llibertat dels altres.
+
+   Per exemple, si distribuïu còpies d'aquest programa, si
+ gratuït o de pagament, heu de transmetre el mateix als destinataris
+ llibertats que has rebut.  Heu d'assegurar-vos que ells també rebin
+ o pot obtenir el codi font.  I heu de mostrar-los aquests termes perquè ells
+ conèixer els seus drets.
+
+   Els desenvolupadors que utilitzen la GNU GPL protegeixen els vostres drets amb dos passos:
+ (1) fer valer els drets d'autor del programari i (2) oferir-vos aquesta llicència
+ donant-li permís legal per copiar-lo, distribuir-lo i/o modificar-lo.
+
+   Per a la protecció dels desenvolupadors i dels autors, la GPL ho explica clarament
+ que no hi ha cap garantia per a aquest programari lliure.  Tant per als usuaris com
+ amor dels autors, la GPL requereix que les versions modificades es marquin com a
+ canviat, de manera que els seus problemes no s'atribuiran erròniament
+ autors de versions anteriors.
+
+   Alguns dispositius estan dissenyats per impedir als usuaris l'accés per instal·lar-los o executar-los
+ versions modificades del programari al seu interior, encara que el fabricant
+ pot fer-ho.  Això és fonamentalment incompatible amb l'objectiu de
+ protegint la llibertat dels usuaris per canviar el programari.  La sistemàtica
+ patró d'aquest abús es produeix a l'àrea de productes per a les persones
+ ús, que és precisament on és més inacceptable.  Per tant, nosaltres
+ han dissenyat aquesta versió de la GPL per prohibir-ne la pràctica
+ productes.  Si aquests problemes sorgeixen substancialment en altres dominis, nosaltres
+ estigueu preparats per estendre aquesta disposició a aquests dominis en futures versions
+ de la GPL, segons sigui necessari per protegir la llibertat dels usuaris.
+
+   Finalment, cada programa està constantment amenaçat per les patents de programari.
+ Els estats no haurien de permetre que les patents restringeixin el desenvolupament i l'ús de
+ programari en ordinadors de propòsit general, però en aquells que ho fan, ho volem
+ evitar l'especial perill que les patents aplicades a un programa lliure podrien
+ fer-lo efectivament propietari.  Per evitar-ho, la GPL ho assegura
+ les patents no es poden utilitzar per fer que el programa no sigui lliure.
+
+   Els termes i condicions concrets de còpia, distribució i
+ segueix la modificació.
+
+                        TERMES I CONDICIONS
+
+   0. Definicions.
+
+   "Aquesta llicència" fa referència a la versió 3 de la Llicència Pública General de GNU.
+
+   "Dret d'autor" també significa lleis semblants als drets d'autor que s'apliquen a altres tipus de
+ obres, com ara màscares de semiconductors.
+
+   "El Programa" es refereix a qualsevol obra amb drets d'autor sota llicència d'aquest
+ llicència.  Cada llicenciatari s'adreça com a "tu".  "Llicències" i
+ Els "destinataris" poden ser individus o organitzacions.
+
+   "Modificar" una obra significa copiar o adaptar-ne la totalitat o part
+ d'una manera que requereix un permís de drets d'autor, que no sigui la realització d'un
+ còpia exacta.  El treball resultant s'anomena "versió modificada" del
+ treball anterior o un treball "basat en" el treball anterior.
+
+   Un "treball cobert" significa el Programa sense modificar o un treball basat
+ al Programa.
+
+   "Propagar" una obra significa fer qualsevol cosa amb ella que, sense
+ permís, us faria responsable directa o secundàriament
+ infracció de la llei de drets d'autor aplicable, excepte executar-la en a
+ ordinador o modificar una còpia privada.  La propagació inclou la còpia,
+ distribució (amb o sense modificació), posant a disposició del
+ públic, i en alguns països també altres activitats.
+
+   "Transmetre" una obra significa qualsevol tipus de propagació que en permeti una altra
+ parts per fer o rebre còpies.  Simple interacció amb un usuari a través
+ una xarxa informàtica, sense transferència d'una còpia, no es transmet.
+
+   Una interfície d'usuari interactiva mostra "Avisos legals adequats"
+ en la mesura que inclou una visió convenient i destacada
+ funció que (1) mostra un avís de drets d'autor adequat i (2)
+ indica a l'usuari que no hi ha cap garantia per al treball (excepte per al
+ en la mesura que es proporcionin garanties), que els llicenciataris poden transmetre el
+ treballar sota aquesta llicència i com veure una còpia d'aquesta llicència.  Si
+ la interfície presenta una llista d'ordres o opcions d'usuari, com ara a
+ menú, un element destacat de la llista compleix aquest criteri.
+
+   1. Codi font.
+
+   El "codi font" d'una obra significa la forma preferida de l'obra
+ per fer-hi modificacions.  "Codi d'objecte" significa qualsevol que no sigui font
+ forma d'una obra.
+
+   Una "Interfície estàndard" significa una interfície que és oficial
+ estàndard definit per un organisme de normalització reconegut, o, en el cas de
+ interfícies especificades per a un llenguatge de programació concret, un que
+ s'utilitza àmpliament entre els desenvolupadors que treballen en aquest llenguatge.
+
+   Les "Biblioteques del sistema" d'una obra executable inclouen qualsevol altra cosa
+ que l'obra en conjunt, que (a) s'inclou en la forma normal de
+ empaquetar un component principal, però que no forma part d'aquest component principal
+ Component, i (b) només serveix per permetre l'ús de l'obra amb això
+ Component principal, o per implementar una interfície estàndard per a la qual an
+ La implementació està disponible per al públic en forma de codi font.  A
+ "Component principal", en aquest context, significa un component essencial important
+ (nucli, sistema de finestres, etc.) del sistema operatiu específic
+ (si n'hi ha) en què s'executa el treball executable, o un compilador utilitzat
+ produir el treball, o un intèrpret de codi objecte utilitzat per executar-lo.
+
+   La "Font corresponent" per a una obra en forma de codi objecte significa tot
+ el codi font necessari per generar, instal·lar i (per a un fitxer executable
+ work) executar el codi objecte i modificar el treball, inclosos els scripts
+ controlar aquestes activitats.  No obstant això, no inclou l'obra
+ Biblioteques del sistema, o eines de propòsit general o generalment disponibles gratuïtament
+ programes que s'utilitzen sense modificar en la realització d'aquestes activitats però
+ que no formen part de l'obra.  Per exemple, Font corresponent
+ inclou fitxers de definició d'interfície associats amb fitxers font per
+ l'obra, i el codi font per a biblioteques compartides i dinàmicament
+ subprogrames enllaçats que el treball està dissenyat específicament per requerir,
+ com per exemple mitjançant la comunicació íntima de dades o el flux de control entre aquests
+ subprogrames i altres parts del treball.
+
+   La font corresponent no ha d'incloure res dels usuaris
+ es pot regenerar automàticament des d'altres parts del Corresponent
+ Font.
+
+   La font corresponent per a una obra en forma de codi font és això
+ mateix treball.
+
+   2. Permisos bàsics.
+
+   Tots els drets concedits en virtut d'aquesta llicència es concedeixen durant el període de
+ drets d'autor del Programa, i són irrevocables sempre que s'indiqui
+ es compleixen les condicions.  Aquesta llicència afirma explícitament el vostre nombre il·limitat
+ permís per executar el programa sense modificar.  La sortida de l'execució a
+ el treball cobert està cobert per aquesta llicència només si la sortida, donada la seva
+ contingut, constitueix un treball cobert.  Aquesta llicència reconeix el vostre
+ drets d'ús legítim o un altre equivalent, tal com preveu la llei de drets d'autor.
+
+   Podeu fer, executar i propagar obres cobertes que no feu
+ transmetre, sense condicions, sempre que es mantingui la seva llicència
+ vigent.  Podeu transmetre obres cobertes a altres persones amb l'únic propòsit
+ de fer que facin modificacions exclusivament per a vostè, o li proporcionin
+ amb facilitats per a l'execució d'aquestes obres, sempre que compleixi
+ els termes d'aquesta llicència per transmetre tot el material pel qual feu
+ no controlen els drets d'autor.  Els que així fan o executen les obres cobertes
+ perquè ho heu de fer exclusivament en nom vostre, sota la vostra direcció
+ i control, en termes que els prohibeixin fer còpies
+ el teu material amb drets d'autor fora de la seva relació amb tu.
+
+   La transmissió sota qualsevol altra circumstància està permesa únicament a
+ les condicions que s'indiquen a continuació.  No es permet la subllicència;  apartat 10
+ ho fa innecessari.
+
+   3. Protecció dels Drets Legals dels Usuaris de la Llei Antielusió.
+
+   Cap obra coberta es considerarà part d'una tecnologia eficaç
+ mesura en virtut de qualsevol llei aplicable que compleixi les obligacions previstes a l'article
+ 11 del tractat de drets d'autor de l'OMPI adoptat el 20 de desembre de 1996, o
+ lleis similars que prohibeixen o restringeixen la elusió d'aquestes
+ mesures.
+
+   Quan transmets una obra coberta, renuncien a qualsevol poder legal de prohibició
+ elusió de les mesures tecnològiques en la mesura que aquesta elusió
+ s'efectua mitjançant l'exercici dels drets d'aquesta llicència respecte a
+ l'obra coberta, i declineu qualsevol intenció de limitar l'operació o
+ modificació de l'obra com a mitjà d'execució, en contra de l'obra
+ usuaris, els vostres drets legals o els de tercers per prohibir la elusió
+ mesures tecnològiques.
+
+   4. Transmissió de còpies textuals.
+
+   Podeu transmetre còpies textuals del codi font del Programa com vosaltres
+ rebre-la, en qualsevol mitjà, sempre que ho faci de manera visible i
+ publicar adequadament a cada còpia un avís de drets d'autor adequat;
+ mantenir intactes tots els avisos que indiquen que aquesta Llicència i qualsevol
+ Els termes no permissius afegits d'acord amb la secció 7 s'apliquen al codi;
+ mantenir intactes tots els avisos de l'absència de cap garantia;  i donar-ho tot
+ als destinataris una còpia d'aquesta Llicència juntament amb el Programa.
+
+   Podeu cobrar qualsevol preu o cap preu per cada còpia que envieu,
+ i podeu oferir suport o protecció de garantia per una tarifa.
+
+   5. Transmissió de versions de font modificades.
+
+   Podeu transmetre un treball basat en el Programa o les modificacions a
+ produir-lo des del Programa, en forma de codi font sota el
+ termes de l'apartat 4, sempre que compleixi totes aquestes condicions:
+
+     a) L'obra ha de portar anuncis destacats en què s'indiqui que s'ha modificat
+     i indicant una data rellevant.
+
+     b) L'obra ha de portar uns anuncis destacats que indiquin que ho és
+     publicat sota aquesta llicència i qualsevol condició afegida a la secció
+     7. Aquest requisit modifica el requisit de l'apartat 4 a
+     "Mantenir intactes tots els avisos".
+
+     c) Heu de llicenciar tota l'obra, en el seu conjunt, sota aquest
+     Llicència a qualsevol persona que entri en possessió d'una còpia.  Això
+     Per tant, s'aplicarà la llicència, juntament amb qualsevol secció aplicable
+     termes addicionals, al conjunt de l'obra i a totes les seves parts,
+     independentment de com estiguin empaquetats.  Aquesta llicència dóna núm
+     permís per llicenciar l'obra de qualsevol altra manera, però no ho fa
+     invalideu aquest permís si l'heu rebut per separat.
+
+     d) Si l'obra té interfícies d'usuari interactives, s'ha de mostrar cadascuna
+     Avisos legals adequats;  tanmateix, si el Programa té interactiu
+     interfícies que no mostren els avisos legals adequats, el vostre
+     el treball no els obliga a fer-ho.
+
+   Una recopilació d'una obra coberta amb altres separades i independents
+ obres, que per la seva naturalesa no siguin extensions de l'obra coberta,
+ i que no es combinen amb ell per formar un programa més gran,
+ dins o sobre un volum d'un mitjà d'emmagatzematge o distribució, s'anomena an
+ "agregat" si la compilació i els seus drets d'autor resultants no ho són
+ utilitzat per limitar l'accés o els drets legals dels usuaris de la compilació
+ més enllà del que permeten les obres individuals.  Inclusió d'una obra coberta
+ en conjunt no fa que aquesta Llicència s'apliqui a l'altra
+ parts de l'agregat.
+
+   6. Transmissió de formularis sense font.
+
+   Podeu transmetre una obra coberta en forma de codi objecte segons els termes
+ dels apartats 4 i 5, sempre que també transmeti la
+ Font corresponent llegible per màquina segons els termes d'aquesta llicència,
+ d'una d'aquestes maneres:
+
+     a) Transmetre el codi objecte en un producte físic o incorporat en un producte físic
+     (incloent un mitjà de distribució físic), acompanyat del
+     Font corresponent fixada en un suport físic durador
+     s'utilitza habitualment per a l'intercanvi de programari.
+
+     b) Transmetre el codi objecte en un producte físic o incorporat en un producte físic
+     (incloent un mitjà de distribució físic), acompanyat d'a
+     oferta escrita, vàlida com a mínim per a tres anys i vàlida per a
+     sempre que ofereixi peces de recanvi o assistència al client per a aquest producte
+     model, per donar a qualsevol que posseeixi el codi objecte (1) a
+     còpia de la font corresponent per a tot el programari del
+     producte que està cobert per aquesta llicència, en un material físic durador
+     mitjà utilitzat habitualment per a l'intercanvi de programari, per un preu núm
+     més del cost raonable de realitzar-ho físicament
+     transmissió de la font, o (2) accés per copiar el
+     Font corresponent d'un servidor de xarxa sense cap cost.
+
+     c) Transmetre còpies individuals del codi objecte amb una còpia del
+     oferta escrita per proporcionar la Font corresponent.  Això
+     l'alternativa només es permet de manera ocasional i no comercial, i
+     només si heu rebut el codi objecte amb aquesta oferta, d'acord
+     amb l'apartat 6b.
+
+     d) Transmetre el codi objecte oferint accés des d'una persona designada
+     lloc (gratis o de pagament) i ofereixen un accés equivalent al
+     Font corresponent de la mateixa manera pel mateix lloc al núm
+     càrrec addicional.  No cal que els destinataris copien el fitxer
+     Font corresponent juntament amb el codi objecte.  Si el lloc a
+     copiar el codi objecte és un servidor de xarxa, la font corresponent
+     pot estar en un servidor diferent (operat per tu o per un tercer)
+     que admet instal·lacions de còpia equivalents, sempre que mantingueu
+     indicacions clares al costat del codi d'objecte que diuen on trobar-lo
+     Font corresponent.  Independentment de quin servidor allotja el
+     Font corresponent, esteu obligat a assegurar-vos que ho sigui
+     disponible durant el temps necessari per satisfer aquests requisits.
+
+     e) Transmetre el codi d'objecte mitjançant la transmissió peer-to-peer, proporcionada
+     informeu altres companys on el codi d'objecte i el corresponent
+     L'origen de l'obra s'ofereix al públic en general al núm
+     càrrec d'acord amb la subsecció 6d.
+
+   Una part separable del codi objecte, el codi font del qual està exclòs
+ de la font corresponent com a biblioteca del sistema, no cal que ho sigui
+ inclòs en la transmissió del treball del codi objecte.
+
+   Un "Producte d'usuari" és (1) un "producte de consum", que significa qualsevol
+ béns personals tangibles que normalment s'utilitzen per a finalitats personals, familiars,
+ o per a la llar, o (2) qualsevol cosa dissenyada o venuda per a la incorporació
+ a un habitatge.  Per determinar si un producte és un producte de consum,
+ els casos dubtosos es resoldran a favor de la cobertura.  Per un particular
+ producte rebut per un usuari concret, "utilitzat habitualment" fa referència a a
+ ús típic o comú d'aquesta classe de producte, independentment de l'estat
+ de l'usuari particular o de la manera en què l'usuari en concret
+ realment utilitza, o espera o s'espera que utilitzi, el producte.  Un producte
+ és un producte de consum independentment de si el producte té substancial
+ usos comercials, industrials o no de consum, llevat que aquests usos representin
+ l'única manera significativa d'ús del producte.
+
+   "Informació d'instal·lació" per a un producte d'usuari significa qualsevol mètode,
+ procediments, claus d'autorització o altra informació necessària per a la instal·lació
+ i executar versions modificades d'un treball cobert en aquest Producte d'usuari des
+ una versió modificada de la seva font corresponent.  La informació ha de
+ n'hi ha prou per garantir el funcionament continuat de l'objecte modificat
+ codi en cap cas s'impedeix o interfereix únicament perquè
+ s'ha fet modificació.
+
+   Si transmeteu un codi objecte, treballeu sota aquesta secció en, o amb, o
+ específicament per al seu ús en un Producte d'usuari, i el transport es produeix com
+ part d'una transacció en què el dret de possessió i ús del
+ El producte d'usuari es transfereix al destinatari a perpetuïtat o per a
+ termini determinat (independentment de com es caracteritzi l'operació), el
+ S'ha d'acompanyar la font corresponent que es transmet en aquest apartat
+ per la informació d'instal·lació.  Però aquest requisit no s'aplica
+ si ni vostè ni cap tercer conserven la capacitat d'instal·lar
+ codi d'objecte modificat al producte d'usuari (per exemple, l'obra té
+ instal·lat a la ROM).
+
+   El requisit de proporcionar informació d'instal·lació no inclou a
+ requisit per continuar proporcionant servei de suport, garantia o actualitzacions
+ per a una obra que ha estat modificada o instal·lada pel destinatari, o per
+ el Producte d'Usuari en el qual s'ha modificat o instal·lat.  Accés a a
+ xarxa es pot denegar quan la modificació en si mateixa material i
+ afecta negativament el funcionament de la xarxa o incompleix les normes i
+ protocols de comunicació a través de la xarxa.
+
+   S'ha enviat la font corresponent i s'ha proporcionat la informació d'instal·lació,
+ d'acord amb aquest apartat ha de tenir un format que sigui públic
+ documentat (i amb una implementació disponible per al públic a
+ codi font), i no ha de requerir cap contrasenya o clau especial per
+ desembalar, llegir o copiar.
+
+   7. Condicions addicionals.
+
+   Els "permisos addicionals" són termes que complementen els termes d'aquest
+ Llicència fent excepcions a una o més de les seves condicions.
+ Els permisos addicionals aplicables a tot el programa ho seran
+ ser tractats com si estiguessin inclosos en aquesta Llicència, en la mesura en què
+ que són vàlids segons la legislació aplicable.  Si hi ha permisos addicionals
+ s'aplica només a una part del Programa, aquesta part es pot utilitzar per separat
+ sota aquests permisos, però tot el Programa continua regit per
+ aquesta Llicència sense tenir en compte els permisos addicionals.
+
+   Quan envieu una còpia d'un treball cobert, ho podeu fer a la vostra opció
+ eliminar qualsevol permís addicional d'aquesta còpia o de qualsevol part d'aquesta
+ això.  (Es poden escriure permisos addicionals per requerir els seus
+ eliminació en determinats casos quan modifiqueu l'obra.) Podeu col·locar
+ permisos addicionals sobre material, afegits per tu a un treball cobert,
+ per als quals teniu o podeu donar el permís de drets d'autor corresponent.
+
+   Sense perjudici de qualsevol altra disposició d'aquesta llicència, pel que fa al material
+ afegir a una obra coberta, podeu (si ho autoritzeu els titulars dels drets d'autor de
+ aquest material) complementa els termes d'aquesta llicència amb els termes:
+
+     a) Renunciar a la garantia o limitar la responsabilitat de manera diferent a la
+     termes de les seccions 15 i 16 d'aquesta llicència;  o
+
+     b) Exigir la conservació dels avisos legals raonables especificats o
+     atribucions d'autor en aquest material o a la Llei corresponent
+     Avisos mostrats per les obres que el contenen;  o
+
+     c) Prohibir la tergiversació de l'origen d'aquest material, o
+     exigint que les versions modificades d'aquest material estiguin marcades
+     maneres raonables com diferents de la versió original;  o
+
+     d) Limitar l'ús amb finalitats publicitàries de noms de llicenciants o
+     autors del material;  o
+
+     e) Denegar la concessió de drets en virtut de la llei de marques per a l'ús d'alguns
+     noms comercials, marques comercials o marques de servei;  o
+
+     f) Exigir indemnització als llicenciants i autors d'aquella
+     material per qualsevol persona que transmeti el material (o versions modificades de
+     it) amb assumpcions contractuals de responsabilitat davant del destinatari, per
+     qualsevol responsabilitat que aquests supòsits contractuals imposen directament
+     aquells llicenciants i autors.
+
+   Tots els altres termes addicionals no permissius es consideren "més
+ restriccions" en el sentit de la secció 10. Si el Programa com vostè
+ rebut, o qualsevol part d'ell, conté un avís que indica que ho és
+ regit per aquesta Llicència juntament amb un terme que és un altre
+ restricció, podeu eliminar aquest terme.  Si un document de llicència conté
+ una restricció més, però permet l'atorgament de llicències o la transmissió en virtut d'aquesta
+ Llicència, podeu afegir a un material de treball cobert regulat pels termes
+ d'aquest document de llicència, sempre que la restricció addicional ho faci
+ no sobreviure a aquesta relicència o transmissió.
+
+   Si afegiu termes a un treball cobert d'acord amb aquesta secció, vostè
+ ha de col·locar, als fitxers font pertinents, una declaració de la
+ condicions addicionals que s'apliquen a aquests fitxers, o un avís que ho indiqui
+ on trobar les condicions aplicables.
+
+   Es poden indicar termes addicionals, permissius o no permissius
+ forma d'una llicència escrita per separat, o indicada com a excepcions;
+ els requisits anteriors s'apliquen de qualsevol manera.
+
+   8. Termini.
+
+   No podeu propagar ni modificar una obra coberta excepte de manera expressa
+ proporcionada sota aquesta llicència.  Qualsevol intent d'una altra manera de propagar o
+ modificar-lo és nul i cancel·larà automàticament els vostres drets
+ aquesta Llicència (incloent-hi qualsevol llicència de patent concedida en virtut del tercer
+ paràgraf de l'article 11).
+
+   Tanmateix, si deixeu de violar aquesta llicència, aleshores
+ la llicència d'un determinat titular dels drets d'autor es restableix (a)
+ provisionalment, tret que i fins que el titular dels drets d'autor explícitament i
+ finalment finalitza la vostra llicència, i (b) permanentment, si els drets d'autor
+ el titular no us notifica la violació per algun mitjà raonable
+ abans dels 60 dies posteriors al cessament.
+
+   A més, la vostra llicència d'un titular de drets d'autor en particular és
+ es restablirà permanentment si el titular dels drets d'autor us ho notifica
+ violació per algun mitjà raonable, aquesta és la primera vegada que ho feu
+ rebut un avís de violació d'aquesta llicència (per a qualsevol treball) d'aquell
+ titular dels drets d'autor, i cura la violació abans de 30 dies després
+ la seva recepció de l'avís.
+
+   L'extinció dels vostres drets d'acord amb aquesta secció no posa fi a la
+ llicències de les parts que han rebut còpies o drets de la vostra part
+ aquesta Llicència.  Si els teus drets s'han extingit i no de manera definitiva
+ restablert, no podeu rebre noves llicències per a les mateixes
+ material de la secció 10.
+
+   9. No es requereix acceptació per tenir còpies.
+
+   No cal que accepteu aquesta llicència per rebre o
+ executar una còpia del programa.  Propagació auxiliar d'una obra coberta
+ es produeix únicament com a conseqüència de l'ús de la transmissió peer-to-peer
+ rebre una còpia de la mateixa manera no requereix acceptació.  Malgrat això,
+ res més que aquesta llicència us atorga permís per propagar o
+ modificar qualsevol obra coberta.  Aquestes accions infringeixen els drets d'autor si ho feu
+ no accepta aquesta llicència.  Per tant, modificant o propagant a
+ treball cobert, indiqueu la vostra acceptació d'aquesta llicència per fer-ho.
+
+   10. Llicència automàtica de destinataris aigües avall.
+
+   Cada vegada que envieu una obra coberta, el destinatari automàticament
+ rep una llicència dels llicenciants originals, per executar, modificar i
+ propagar aquest treball, subjecte a aquesta llicència.  No ets responsable
+ per fer complir aquesta Llicència per part de tercers.
+
+   Una "transacció d'entitat" és una transacció que transfereix el control d'un
+ organització, o substancialment tots els actius d'una, o subdividir un
+ organització, o organitzacions que es fusionen.  Si la propagació d'un cobert
+ el treball resulta d'una transacció de l'entitat, cada part d'aquesta
+ transacció qui rep una còpia de l'obra també rep el que sigui
+ llicències per a l'obra que el predecessor del partit interessada tenia o podia
+ donar en virtut del paràgraf anterior, més un dret a la possessió del
+ Font corresponent de l'obra del predecessor en interès, si
+ el predecessor el té o el pot aconseguir amb esforços raonables.
+
+   No podeu imposar cap restricció addicional a l'exercici de la
+ drets concedits o afirmats sota aquesta llicència.  Per exemple, podeu
+ no imposar una taxa de llicència, regals o altres càrrecs per a l'exercici
+ drets concedits en virtut d'aquesta llicència, i no podeu iniciar un litigi
+ (inclosa una demanda creuada o reconvencional en una demanda) al·legant això
+ s'infringeix qualsevol reclamació de patent en fer, utilitzar, vendre i oferir
+ venda, o importar el Programa o qualsevol part del mateix.
+
+   11. Patents.
+
+   Un "col·laborador" és un titular dels drets d'autor que n'autoritza l'ús
+ Llicència del Programa o una obra en la qual es basa el Programa.  El
+ l'obra amb llicència així s'anomena "versió de col·laborador" del col·laborador.
+
+   Les "reclamacions de patent essencials" d'un col·laborador són totes reclamacions de patent
+ propietat o controlat pel contribuent, ja sigui adquirit o
+ adquirit a partir d'ara, que seria infringit d'alguna manera, permès
+ per aquesta llicència, de fer, utilitzar o vendre la seva versió de col·laborador,
+ però no incloure les reclamacions que només s'infringeixen com a
+ conseqüència d'una modificació posterior de la versió del col·laborador.  Per
+ als propòsits d'aquesta definició, "control" inclou el dret a concedir
+ subllicències de patents d'una manera coherent amb els requisits de
+ aquesta Llicència.
+
+   Cada col·laborador t'ofereix un grat no exclusiu, a tot el món i sense drets d'autor
+ llicència de patent segons les reivindicacions de patent essencials del col·laborador, a
+ fer, utilitzar, vendre, oferir a la venda, importar i executar, modificar i d'una altra manera
+ propagar el contingut de la seva versió de col·laborador.
+
+   En els tres paràgrafs següents, una "llicència de patent" és qualsevol expressa
+ acord o compromís, sigui quin sigui el denominat, de no fer valer una patent
+ (com ara un permís exprés per practicar una patent o un pacte de no fer-ho
+ demandar per infracció de patents).  Per "atorgar" aquesta llicència de patent a a
+ part significa fer aquest acord o compromís de no fer complir a
+ patent contra el partit.
+
+   Si transmeteu una obra coberta, confiant conscientment en una llicència de patent,
+ i la Font corresponent de l'obra no està disponible per a ningú
+ copiar, gratuïtament i sota els termes d'aquesta llicència, a través d'a
+ servidor de xarxa disponible públicament o altres mitjans de fàcil accés,
+ aleshores heu de (1) fer que la Font corresponent sigui així
+ disponible, o (2) organitzar-se per privar-se del benefici de la
+ llicència de patent per a aquesta obra en particular, o (3) organitzar, d'una manera
+ d'acord amb els requisits d'aquesta llicència, per ampliar la patent
+ llicència als destinataris aigües avall.  "Confiar a consciència" vol dir que ho tens
+ coneixement real que, però per a la llicència de patent, esteu transmetent el
+ treball cobert en un país, o l'ús que el destinatari fa del treball cobert
+ en un país, infringiria una o més patents identificables en aquest
+ país que tens motius per creure que són vàlids.
+
+   Si, d'acord amb o en relació amb una única transacció o
+ arranjament, transmetre o propagar procurant el transport de, a
+ obra coberta i concedir una llicència de patent a algunes de les parts
+ rebre l'obra coberta autoritzant-los a utilitzar, propagar, modificar
+ o transmetre una còpia específica de l'obra coberta, després la llicència de patent
+ la seva subvenció s'estén automàticament a tots els destinataris de la cobertura
+ treball i treballs basats en ell.
+
+   Una llicència de patent és "discriminatòria" si no inclou
+ l'abast de la seva cobertura, prohibeix l'exercici de, o és
+ condicionat al no exercici d'un o més dels drets que són
+ concedit específicament sota aquesta llicència.  És possible que no transmeti un cobert
+ treballar si sou part d'un acord amb un tercer que ho és
+ en el negoci de distribució de programari, sota el qual feu el pagament
+ al tercer en funció de l'abast de la seva activitat de transport
+ l'obra, i en virtut del qual el tercer atorga, a qualsevol dels
+ les parts que rebran el treball cobert de vostè, una discriminació
+ llicència de patent (a) en relació amb còpies de l'obra coberta
+ enviat per vostè (o còpies fetes a partir d'aquestes còpies), o (b) principalment
+ per i en relació amb productes o recopilacions concrets que
+ contingui el treball cobert, tret que hàgiu subscrit aquest acord,
+ o aquesta llicència de patent es va concedir, abans del 28 de març de 2007.
+
+   Res d'aquesta llicència s'interpretarà com a excloent o limitant
+ qualsevol llicència implícita o altres defenses a la infracció que puguin
+ en cas contrari estar disponible per a vostè d'acord amb la legislació de patents aplicable.
+
+   12. Cap rendició de la llibertat dels altres.
+
+   Si se us imposen condicions (ja sigui per ordre judicial, acord o
+ en cas contrari) que contradiguin les condicions d'aquesta Llicència, no ho fan
+ disculpeu les condicions d'aquesta llicència.  Si no pots transmetre a
+ treball cobert per satisfer simultàniament les seves obligacions en virtut d'aquest
+ Llicència i qualsevol altra obligació pertinent, aleshores com a conseqüència vostè pot
+ no ho transmeten gens.  Per exemple, si accepteu els termes que us obliguen
+ per cobrar una regalia per a la posterior transmissió d'aquells a qui transmeteu
+ el Programa, l'única manera de poder complir ambdós termes i aquest
+ La llicència seria abstenir-se completament de transmetre el Programa.
+
+   13. Ús amb la Llicència Pública General GNU Affero.
+
+   Sense perjudici de qualsevol altra disposició d'aquesta Llicència, vostè té
+ permís per enllaçar o combinar qualsevol obra coberta amb una obra amb llicència
+ sota la versió 3 de la Llicència Pública General GNU Affero en un sol
+ treball combinat, i transmetre el treball resultant.  Els termes d'aquesta
+ La llicència continuarà aplicant-se a la part que és l'obra coberta,
+ però els requisits especials de la Llicència Pública General GNU Affero,
+ L'apartat 13, relatiu a la interacció a través d'una xarxa, s'aplicarà a la
+ combinació com a tal.
+
+   14. Versions revisades d'aquesta llicència.
+
+   La Free Software Foundation pot publicar versions revisades i/o noves de
+ la Llicència Pública General de GNU de tant en tant.  Aquestes noves versions ho faran
+ ser similar en esperit a la versió actual, però pot diferir en detall
+ abordar nous problemes o inquietuds.
+
+   Cada versió té un número de versió distintiu.  Si el
+ El programa especifica que una determinada versió numerada del GNU General
+ S'aplica la llicència pública "o qualsevol versió posterior", teniu el
+ opció de seguir els termes i condicions qualsevol dels numerats
+ versió o de qualsevol versió posterior publicada pel Programari Lliure
+ Fundació.  Si el Programa no especifica un número de versió del fitxer
+ Llicència pública general GNU, podeu triar qualsevol versió publicada
+ per la Free Software Foundation.
+
+   Si el Programa especifica que un proxy pot decidir quin futur
+ es poden utilitzar versions de la Llicència Pública General de GNU, aquest proxy
+ la declaració pública d'acceptació d'una versió l'autoritza permanentment
+ per triar aquesta versió per al Programa.
+
+   Les versions de llicència posteriors poden oferir-vos més o diferents
+ permisos.  No obstant això, no s'imposa cap obligació addicional a cap
+ autor o titular dels drets d'autor com a resultat de la vostra elecció de seguir a
+ versió posterior.
+
+   15. Exempció de garantia.
+
+   NO HI HA GARANTIA PER AL PROGRAMA, EN LA MESURA PERMESA
+ LLEI APLICABLE.  EXCEPTE QUAN S'indiqui el contrari a l'escriptura dels drets d'autor
+ ELS TITULARS I/O ALTRES PARTS PROPORCIONEN EL PROGRAMA "TAL CUAL" SENSE GARANTIA
+ DE QUALSEVOL TIPUS, JA SIGUI EXPRESSA O IMPLÍCITA, INCLÒS, PERÒ NO LIMITAT A,
+ LES GARANTIES IMPLÍCITES DE COMERCIABILITAT I IDONEITAT PER A UN PARTICULAR
+ PROPÒSIT.  TOT EL RISC SOBRE LA QUALITAT I EL RENDIMENT DEL PROGRAMA
+ ESTÀ AMB TU.  EN CAS QUE EL PROGRAMA ÉS DEFECTUÓS, VOLS ASSUMIREU EL COST
+ TOT EL SERVEI, REPARACIÓ O CORRECCIÓ NECESSARIS.
+
+   16. Limitació de responsabilitat.
+
+   EN CAP CAS LEVANT QUE LA LLEI APLICABLE L'EXIGA O S'ACORDA PER ESCRIT
+ QUALSEVOL TITULAR DELS DRET D'AUTOR O QUALSEVOL ALTRE PART QUE MODIFII I/O TRANSMITIRÀ
+ EL PROGRAMA COM S'HA PERMIT MÉS ALTERNAMENT, SERÀ RESPONSABLE ANTERIOR DE VOSTRE DANYS, INCLOSOS QUALSEVOL
+ DANYS GENERALS, ESPECIALS, INCIDENTALS O CONSEQUENTLS DERIVATS DELS
+ ÚS O INHABILITAT D'UTILIZAR EL PROGRAMA (INCLOSA PERÒ NO LIMITAT A LA PÈRDUA DE
+ LES DADES O LES DADES QUE S'EVEN INEXACTES O PÈRDUES SOSTENTES PER TU O TERCER
+ PARTES O UN FALL DE FUNCIONAMENT DEL PROGRAMA AMB ALTRES PROGRAMES),
+ INCLUS QUE AQUEST TITULAR O ALTRA PART HA ESTAT AVISAT DE LA POSSIBILITAT DE
+ AQUEST DANYS.
+
+   17. Interpretació dels articles 15 i 16.
+
+   Si l'exempció de garantia i la limitació de responsabilitat proporcionada
+ anterior no se'ls pot donar efecte legal local segons els seus termes,
+ els tribunals de revisió han d'aplicar la legislació local que s'aproximi més
+ una renúncia absoluta a tota responsabilitat civil en relació amb el
+ Programa, tret que acompanyi una garantia o assumpció de responsabilitat
+ còpia del Programa a canvi d'una tarifa.
+
+                      FI DE TERMES I CONDICIONS
+
+             Com aplicar aquestes condicions als vostres programes nous
+
+   Si desenvolupeu un programa nou i voleu que sigui dels millors
+ possible ús per al públic, la millor manera d'aconseguir-ho és fer-ho
+ programari lliure que tothom pot redistribuir i canviar sota aquests termes.
+
+   Per fer-ho, adjunteu els següents avisos al programa.  És el més segur
+ per adjuntar-los a l'inici de cada fitxer font de la manera més eficaç
+ Indiqueu l'exclusió de la garantia;  i cada fitxer hauria de tenir almenys
+ La línia de "copyright" i un punter cap a on es troba l'avís complet.
+
+     <Una línia per donar el nom del programa i una breu idea del que fa.>
+     Copyright (c) <year> <nom de l'autor>
+
+     Aquest programa és programari gratuït: podeu redistribuir -lo i/o modificar -lo
+     es troba sota els termes de la llicència pública general de la GNU publicada per
+     la Free Software Foundation, la versió 3 de la llicència o
+     (A la vostra opció) Qualsevol versió posterior.
+
+     Aquest programa es distribueix amb l'esperança que sigui útil,
+     però sense cap garantia;  sense ni la garantia implícita de
+     Comerciabilitat o forma física per a un propòsit determinat.  Veure el
+     Llicència pública general GNU per obtenir més detalls.
+
+     Hauríeu d’haver rebut una còpia de la llicència pública general de la GNU
+     juntament amb aquest programa.  Si no, vegeu <https://www.gnu.org/licenses/>.
+
+ Afegiu també informació sobre com contactar -vos per correu electrònic i de paper.
+
+   Si el programa fa interacció terminal, feu que la sortida sigui curta
+ Observeu així quan comença en un mode interactiu:
+
+     <PROGRA> COPYRIGHT (C) <ANY> <Nom de l'autor>
+     Aquest programa no té cap garantia;  Per a més detalls, escriviu `mostrar w '.
+     Es tracta d’un programari gratuït i us convidem a redistribuir -lo
+     en determinades condicions;  Escriviu "Mostra C" per obtenir més informació.
+
+ Les comandes hipotètiques `mostrar w 'i` show c' haurien de mostrar els adequats
+ Parts de la llicència pública en general.  Per descomptat, les ordres del vostre programa
+ pot ser diferent;  Per a una interfície GUI, utilitzaríeu una "caixa sobre".
+
+   També heu d’obtenir el vostre empresari (si treballeu com a programador) o l’escola,
+ Si n’hi ha, per signar una "responsabilitat de drets d'autor" del programa, si cal.
+ Per obtenir més informació sobre això i com aplicar i seguir el GNU GPL, vegeu
+ <https://www.gnu.org/licenses/>.
+
+   La llicència pública general de la GNU no permet incorporar el vostre programa
+ en programes propietaris.  Si el vostre programa és una biblioteca subrutina, vosaltres
+ pot considerar que és més útil per permetre la vinculació de les sol·licituds propietàries amb
+ la biblioteca.  Si això és el que voleu fer, utilitzeu el GNU Lesser General
+ Llicència pública en lloc d'aquesta llicència.  Però primer, si us plau, llegiu
+ <https://www.gnu.org/licenses/why-not-lgpl.html>.
+ 
