@@ -48,7 +48,7 @@ $ sudo apt install curl grep gawk
 - [x] Filter known binaries to eliminate unnecessary requests to GTFOBins.
 - [x] Remove dependency on `pup`.
 - [x] Check if the `curl` or `wget` binary exists to make the request.
-- [ ] Check if the `grep` or `awk` binary exists to filter the request.
+- [x] Check if the `grep` or `awk` binary exists to filter the request.
 - [ ] Parameter to show binaries even if they are not in GTFOBins.
 - [ ] Parameter for direct execution of examples.
 - [ ] Parameter to show the user who acquires the privileges.

@@ -9,16 +9,8 @@ verbose=0
 scan_types="sudo,suid,capabilities"
 baseurl="https://gtfobins.github.io/gtfobins/"
 suid_files="passwd sudo su chsh chfn gpasswd newgrp" # Ficheros que necesitan SUID normalmente para funcionar.
+capabilities_files="ping" # Ficheros que necesitan capabilities normalmente para funcionar.
 html_content=
-
-if command -v curl >/dev/null; then
-    downloader="curl"
-elif command -v wget >/dev/null; then
-    downloader="wget"
-else
-    echo "Error: No está instalado ni curl ni wget."
-    exit 1
-fi
 
 # Función para manejar la señal de Ctrl+C
 trap ctrl_c INT
@@ -48,6 +40,26 @@ function echo_purple() {
     echo -e "\e[35m$1\e[0m"
 }
 
+# Dependencias
+if command -v curl >/dev/null; then
+    downloader="curl"
+elif command -v wget >/dev/null; then
+    downloader="wget"
+else
+    echo_red "Error: No está instalado ni curl ni wget."
+    exit 1
+fi
+
+if ! command -v awk >/dev/null; then
+    echo_red "Error: No está instalado awk."
+    exit 1
+fi
+
+if ! command -v grep >/dev/null; then
+    echo_red "Error: No está instalado grep."
+    exit 1
+fi
+
 # Función para mostrar la ayuda
 function show_help() {
     echo "Uso: $0 [-v] [-h] [-t=tipo1,tipo2,...]"
@@ -73,6 +85,14 @@ function evaluate_file() {
     if [[ "$type" == "suid" && " $suid_files " =~ " $binary_name " ]]; then
         if [ $verbose -eq 1 ]; then
             echo "$binary_name está en la lista de suid_files."
+        fi
+        return 1
+    fi
+
+    # Comprobando si es capabilities y se encuntra en capabilities_files
+    if [[ "$type" == "capabilities" && " $capabilities_files " =~ " $binary_name " ]]; then
+        if [ $verbose -eq 1 ]; then
+            echo "$binary_name está en la lista de capabilities_files."
         fi
         return 1
     fi

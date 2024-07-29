@@ -47,7 +47,7 @@ $ sudo apt install curl grep gawk
 - [x] Filtrar binarios conocidos para eliminar las peticiones innecesarias a GTFOBins.
 - [x] Quitar la dependencia de `pup`.
 - [x] Comprobar si existe el binario `curl` o `wget` para realizar la petición.
-- [ ] Comprobar si existe el binario `grep` o `awk` para filtrar la petición.
+- [x] Comprobar si existe el binario `grep` o `awk` para filtrar la petición.
 - [ ] Parámetro para mostrar los binarios aunque no estén en GTFOBins.
 - [ ] Parámetro para la ejecución directa de los ejemplos.
 - [ ] Parámetro para mostrar el usuario al que se le adquieren los privilegios.
