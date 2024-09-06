@@ -16,7 +16,7 @@ html_content=
 trap ctrl_c INT
 
 function ctrl_c() {
-    echo -e "\n\e[31mProceso interrumpido por el usuario.\e[0m"
+    echo_red "\nProceso interrumpido por el usuario."
     if [[ -n "$html_content" && -f "$html_content" ]]; then
         rm "$html_content"
     fi
@@ -198,7 +198,7 @@ for type in "${types[@]}"; do
         scan_files "suid" "find / -perm -4000" "SUID"
         ;;
     *)
-        echo -e "\e[31mTipo de escaneo desconocido: $type\e[0m"
+        echo_red "Tipo de escaneo desconocido: $type"
         ;;
     esac
 done
