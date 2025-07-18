@@ -136,14 +136,14 @@ function evaluate_file() {
         http_status=$(wget -q --server-response -O "$html_content" "$url" 2>&1 | $awk_cmd '/^  HTTP/{print $2}' | tail -n 1)
     elif [ "$downloader" = "busybox_curl" ]; then
         # Busybox curl no tiene la opción -w, así que usamos un enfoque diferente
-        if busybox curl -s -o "$html_content" "$url"; then
+        if busybox curl -s -o "$html_content" "$url" 2>/dev/null; then
             http_status="200"
         else
             http_status="404"
         fi
     elif [ "$downloader" = "busybox_wget" ]; then
         # Busybox wget no tiene --server-response, así que usamos un enfoque diferente
-        if busybox wget -q -O "$html_content" "$url"; then
+        if busybox wget -q -O "$html_content" "$url" 2>/dev/null; then
             http_status="200"
         else
             http_status="404"
