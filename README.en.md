@@ -83,8 +83,8 @@ The script requires the following tools to function:
 - [x] Remove dependency on `pup`.
 - [x] Check if the `curl` or `wget` binary exists to make the request.
 - [x] Check if the `grep` or `awk` binary exists to filter the request.
-- [x] Support for `busybox` with integrated `wget` or `curl` for embedded systems.
-- [ ] Parameter to show binaries even if they are not in GTFOBins.
+- [x] Support for `busybox` with integrated `wget`, `curl`, `grep` or `awk` for embedded systems.
+- [x] Parameter to show binaries even if they are not in GTFOBins (flag `-v`).
 - [ ] Parameter for direct execution of examples.
 - [ ] Parameter to show the user who acquires the privileges.
 - [ ] Also check binaries inside `doas`, currently not on GTFOBins.

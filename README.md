@@ -82,8 +82,8 @@ El script requiere las siguientes herramientas para funcionar:
 - [x] Quitar la dependencia de `pup`.
 - [x] Comprobar si existe el binario `curl` o `wget` para realizar la petición.
 - [x] Comprobar si existe el binario `grep` o `awk` para filtrar la petición.
-- [x] Soporte para `busybox` con `wget` o `curl` integrados para sistemas embedded.
-- [ ] Parámetro para mostrar los binarios aunque no estén en GTFOBins.
+- [x] Soporte para `busybox` con `wget`, `curl`, `grep` o `awk` integrados para sistemas embedded.
+- [x] Parámetro para mostrar los binarios aunque no estén en GTFOBins (flag `-v`).
 - [ ] Parámetro para la ejecución directa de los ejemplos.
 - [ ] Parámetro para mostrar el usuario al que se le adquieren los privilegios.
 - [ ] Comprobar también los binarios dentro de `doas`, actualmente no están en GTFOBins.
