@@ -38,17 +38,20 @@ wget https://raw.githubusercontent.com/Len4m/gtfolenam/main/gtfolenam.sh && chmo
 
 ### Dependencies
 
-It uses `curl` or `wget`, whichever is available on the system, to make the request to [GTFOBins](https://gtfobins.github.io/), and uses `grep` and `awk` to filter the result.
+It uses `curl` or `wget`, whichever is available on the system, to make the request to [GTFOBins](https://gtfobins.github.io/). If they are not available, it can also use `busybox` with integrated `wget` or `curl` functions. Uses `grep` and `awk` to filter the result. If they are not available, it can also use `busybox` with integrated `grep` and `awk` functions.
 
 ```
 $ sudo apt install curl grep gawk
-``` 
+```
+
+**Note**: On resource-limited or embedded systems, the script will automatically detect if `busybox` is available with `wget`, `curl`, `grep` or `awk` functions and use them instead. 
 
 ## Future Ideas
 - [x] Filter known binaries to eliminate unnecessary requests to GTFOBins.
 - [x] Remove dependency on `pup`.
 - [x] Check if the `curl` or `wget` binary exists to make the request.
 - [x] Check if the `grep` or `awk` binary exists to filter the request.
+- [x] Support for `busybox` with integrated `wget` or `curl` for embedded systems.
 - [ ] Parameter to show binaries even if they are not in GTFOBins.
 - [ ] Parameter for direct execution of examples.
 - [ ] Parameter to show the user who acquires the privileges.
