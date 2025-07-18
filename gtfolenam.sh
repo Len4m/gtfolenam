@@ -60,13 +60,23 @@ else
     exit 1
 fi
 
-if ! command -v awk >/dev/null; then
-    echo_red "Error: No está instalado awk."
+# Detectar awk
+if command -v awk >/dev/null; then
+    awk_cmd="awk"
+elif command -v busybox >/dev/null && busybox awk --help >/dev/null 2>&1; then
+    awk_cmd="busybox awk"
+else
+    echo_red "Error: No está instalado awk ni busybox con awk."
     exit 1
 fi
 
-if ! command -v grep >/dev/null; then
-    echo_red "Error: No está instalado grep."
+# Detectar grep
+if command -v grep >/dev/null; then
+    grep_cmd="grep"
+elif command -v busybox >/dev/null && busybox grep --help >/dev/null 2>&1; then
+    grep_cmd="busybox grep"
+else
+    echo_red "Error: No está instalado grep ni busybox con grep."
     exit 1
 fi
 
@@ -123,7 +133,7 @@ function evaluate_file() {
     if [ "$downloader" = "curl" ]; then
         http_status=$(curl -s -w "%{http_code}" -o "$html_content" "$url")
     elif [ "$downloader" = "wget" ]; then
-        http_status=$(wget -q --server-response -O "$html_content" "$url" 2>&1 | awk '/^  HTTP/{print $2}' | tail -n 1)
+        http_status=$(wget -q --server-response -O "$html_content" "$url" 2>&1 | $awk_cmd '/^  HTTP/{print $2}' | tail -n 1)
     elif [ "$downloader" = "busybox_curl" ]; then
         # Busybox curl no tiene la opción -w, así que usamos un enfoque diferente
         if busybox curl -s -o "$html_content" "$url"; then
@@ -143,9 +153,17 @@ function evaluate_file() {
     # Comprobar el código de estado HTTP
     if [ "$http_status" -eq 200 ]; then
         # Comprobar si existe una etiqueta <h2> con el id igual a $type
-        if grep -qP '<h2[^>]*\bid="'$type'"[^>]*>' "$html_content"; then
-            rm "$html_content"
-            return 0
+        # Busybox grep no tiene -P (PCRE), así que usamos -E (extended regex) como alternativa
+        if [ "$grep_cmd" = "busybox grep" ]; then
+            if $grep_cmd -qE '<h2[^>]*\bid="'$type'"[^>]*>' "$html_content"; then
+                rm "$html_content"
+                return 0
+            fi
+        else
+            if $grep_cmd -qP '<h2[^>]*\bid="'$type'"[^>]*>' "$html_content"; then
+                rm "$html_content"
+                return 0
+            fi
         fi
     else
         # La URL no está disponible
@@ -213,10 +231,10 @@ function scan_files() {
 for type in "${types[@]}"; do
     case $type in
     sudo)
-        scan_files "sudo" 'eval sudo -l -l | awk '\''/Commands:/ { in_commands=1; next } in_commands && /^[^ ]/ { if ($0 !~ /ALL$/ && $0 !~ /Sudoers/) { gsub(/^[ \t]+/, "", $0); gsub(/[ \t]+$/, "", $0); split($0, a, " "); print a[1]; } }'\''' "sudo"
+        scan_files "sudo" 'eval sudo -l -l | $awk_cmd '\''/Commands:/ { in_commands=1; next } in_commands && /^[^ ]/ { if ($0 !~ /ALL$/ && $0 !~ /Sudoers/) { gsub(/^[ \t]+/, "", $0); gsub(/[ \t]+$/, "", $0); split($0, a, " "); print a[1]; } }'\''' "sudo"
         ;;
     capabilities)
-        scan_files "capabilities" "eval getcap -r / | awk '{print \$1}'" "capabilities"
+        scan_files "capabilities" "eval getcap -r / | $awk_cmd '{print \$1}'" "capabilities"
         ;;
     suid)
         scan_files "suid" "find / -perm -4000" "SUID"
