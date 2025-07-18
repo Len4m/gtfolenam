@@ -45,8 +45,18 @@ if command -v curl >/dev/null; then
     downloader="curl"
 elif command -v wget >/dev/null; then
     downloader="wget"
+elif command -v busybox >/dev/null; then
+    # Verificar si busybox tiene wget o curl
+    if busybox wget --help >/dev/null 2>&1; then
+        downloader="busybox_wget"
+    elif busybox curl --help >/dev/null 2>&1; then
+        downloader="busybox_curl"
+    else
+        echo_red "Error: Busybox está disponible pero no tiene wget ni curl."
+        exit 1
+    fi
 else
-    echo_red "Error: No está instalado ni curl ni wget."
+    echo_red "Error: No está instalado ni curl ni wget, ni busybox con wget/curl."
     exit 1
 fi
 
@@ -114,6 +124,20 @@ function evaluate_file() {
         http_status=$(curl -s -w "%{http_code}" -o "$html_content" "$url")
     elif [ "$downloader" = "wget" ]; then
         http_status=$(wget -q --server-response -O "$html_content" "$url" 2>&1 | awk '/^  HTTP/{print $2}' | tail -n 1)
+    elif [ "$downloader" = "busybox_curl" ]; then
+        # Busybox curl no tiene la opción -w, así que usamos un enfoque diferente
+        if busybox curl -s -o "$html_content" "$url"; then
+            http_status="200"
+        else
+            http_status="404"
+        fi
+    elif [ "$downloader" = "busybox_wget" ]; then
+        # Busybox wget no tiene --server-response, así que usamos un enfoque diferente
+        if busybox wget -q -O "$html_content" "$url"; then
+            http_status="200"
+        else
+            http_status="404"
+        fi
     fi
 
     # Comprobar el código de estado HTTP
