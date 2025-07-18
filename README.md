@@ -14,6 +14,8 @@ Herramienta de uso personal para la enumeración de posibles vectores para la el
 
 Se escanean los binarios del sistema `sudo`, `suid` o con `capabilities` y se comprueba si existen en la web de [GTFOBins](https://gtfobins.github.io/). Si el binario existe, se muestra un enlace a la información.
 
+**Diseñado para funcionar en entornos donde no se pueden instalar dependencias adicionales**, detectando automáticamente las herramientas disponibles en el sistema.
+
 ## Ayuda
 
 ```
@@ -29,21 +31,51 @@ Opciones:
 ```
 ## Instalación
 
-En una carpeta con permisos de escritura.
+En una carpeta con permisos de escritura. El script está diseñado para funcionar sin instalar dependencias adicionales.
 
-```
+### Con wget (recomendado)
+```bash
 wget https://raw.githubusercontent.com/Len4m/gtfolenam/main/gtfolenam.sh && chmod +x gtfolenam.sh
+```
+
+### Con curl
+```bash
+curl -O https://raw.githubusercontent.com/Len4m/gtfolenam/main/gtfolenam.sh && chmod +x gtfolenam.sh
+```
+
+### Con busybox wget
+```bash
+busybox wget https://raw.githubusercontent.com/Len4m/gtfolenam/main/gtfolenam.sh && chmod +x gtfolenam.sh
+```
+
+### Con busybox curl
+```bash
+busybox curl -O https://raw.githubusercontent.com/Len4m/gtfolenam/main/gtfolenam.sh && chmod +x gtfolenam.sh
+```
+
+### Sin herramientas de descarga
+Si no tienes ninguna herramienta de descarga disponible, necesitarás transferir el script desde otro sistema usando métodos como:
+- **SCP/SFTP**: `scp gtfolenam.sh usuario@servidor:/ruta/destino/`
+- **Copia directa**: Si tienes acceso físico o por consola, copia el contenido del script
+- **Transferencia por red**: Usando `nc` (netcat) u otras herramientas de red disponibles
+
+Una vez transferido, ejecuta:
+```bash
+chmod +x gtfolenam.sh
 ```
 
 ### Dependencias
 
-Utiliza `curl` o `wget`, lo que esté en el sistema, para realizar la petición a [GTFOBins](https://gtfobins.github.io/). Si no están disponibles, también puede usar `busybox` con `wget` o `curl` integrados. Usa `grep` y `awk` para filtrar el resultado. Si no están disponibles, también puede usar `busybox` con `grep` y `awk` integrados.
+El script requiere las siguientes herramientas para funcionar:
+- **Descarga web**: `curl` o `wget` (o `busybox` con estas funciones integradas)
+- **Procesamiento de texto**: `grep` y `awk` (o `busybox` con estas funciones integradas)
 
-```
-$ sudo apt install curl grep gawk
-```
+**Nota**: El script detectará automáticamente qué herramientas están disponibles en el sistema y las utilizará. No es necesario instalar dependencias adicionales.
 
-**Nota**: En sistemas con recursos limitados o embedded, el script detectará automáticamente si `busybox` está disponible con las funciones `wget`, `curl`, `grep` o `awk` y las utilizará en su lugar. 
+> 💡 **Para sistemas donde puedes instalar paquetes** (opcional):
+> ```bash
+> $ sudo apt install curl grep gawk
+> ``` 
 
 ## Futuras ideas
 - [x] Filtrar binarios conocidos para eliminar las peticiones innecesarias a GTFOBins.

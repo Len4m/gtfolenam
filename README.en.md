@@ -15,6 +15,8 @@ Personal tool for enumerating potential vectors for privilege escalation in CTFs
 
 The system binaries `sudo`, `suid`, or with `capabilities` are scanned and checked if they exist on the [GTFOBins](https://gtfobins.github.io/) website. If the binary exists, a link to the information is shown.
 
+**Designed to work in environments where additional dependencies cannot be installed**, automatically detecting available tools on the system.
+
 ## Help
 
 ```
@@ -30,21 +32,51 @@ Opciones:
 ```
 ## Installation
 
-In a folder with write permissions.
+In a folder with write permissions. The script is designed to work without installing additional dependencies.
 
-```
+### With wget (recommended)
+```bash
 wget https://raw.githubusercontent.com/Len4m/gtfolenam/main/gtfolenam.sh && chmod +x gtfolenam.sh
+```
+
+### With curl
+```bash
+curl -O https://raw.githubusercontent.com/Len4m/gtfolenam/main/gtfolenam.sh && chmod +x gtfolenam.sh
+```
+
+### With busybox wget
+```bash
+busybox wget https://raw.githubusercontent.com/Len4m/gtfolenam/main/gtfolenam.sh && chmod +x gtfolenam.sh
+```
+
+### With busybox curl
+```bash
+busybox curl -O https://raw.githubusercontent.com/Len4m/gtfolenam/main/gtfolenam.sh && chmod +x gtfolenam.sh
+```
+
+### Without download tools
+If you don't have any download tool available, you'll need to transfer the script from another system using methods such as:
+- **SCP/SFTP**: `scp gtfolenam.sh user@server:/destination/path/`
+- **Direct copy**: If you have physical access or console access, copy the script content
+- **Network transfer**: Using `nc` (netcat) or other available network tools
+
+Once transferred, run:
+```bash
+chmod +x gtfolenam.sh
 ```
 
 ### Dependencies
 
-It uses `curl` or `wget`, whichever is available on the system, to make the request to [GTFOBins](https://gtfobins.github.io/). If they are not available, it can also use `busybox` with integrated `wget` or `curl` functions. Uses `grep` and `awk` to filter the result. If they are not available, it can also use `busybox` with integrated `grep` and `awk` functions.
+The script requires the following tools to function:
+- **Web download**: `curl` or `wget` (or `busybox` with these functions integrated)
+- **Text processing**: `grep` and `awk` (or `busybox` with these functions integrated)
 
-```
-$ sudo apt install curl grep gawk
-```
+**Note**: The script will automatically detect which tools are available on the system and use them. No additional dependencies need to be installed.
 
-**Note**: On resource-limited or embedded systems, the script will automatically detect if `busybox` is available with `wget`, `curl`, `grep` or `awk` functions and use them instead. 
+> 💡 **For systems where you can install packages** (optional):
+> ```bash
+> $ sudo apt install curl grep gawk
+> ``` 
 
 ## Future Ideas
 - [x] Filter known binaries to eliminate unnecessary requests to GTFOBins.
