@@ -1,0 +1,21 @@
+# Build / datos generados
+build/
+
+# Backups
+*.bak
+*~
+
+# Temporales
+*.tmp
+*.temp
+*.swp
+*.swo
+
+# IDE / editor
+.idea/
+.vscode/
+*.sublime-*
+
+# Sistema
+.DS_Store
+Thumbs.db
