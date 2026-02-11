@@ -4,6 +4,8 @@
 
 # GTFOLenam
 
+> ⚠️ **Aviso**: Actualmente esta herramienta no funciona correctamente debido a las últimas actualizaciones del sitio web de GTFOBins. Se está trabajando en una nueva versión del script.
+
 <img src="image.png" width="500" alt="GTFOLenam scanner" style="margin-left:auto;margin-right:auto">
 
 ```bash
