@@ -2,95 +2,126 @@
 [![es](https://img.shields.io/badge/README-es-red.svg?style=flat-square)](https://github.com/len4m/gtfolenam/)
 [![en](https://img.shields.io/badge/README-en-yellow.svg?style=flat-square)](https://github.com/Len4m/gtfolenam/blob/main/README.en.md)
 
-# GTFOLenam
-
-> ⚠️ **Notice**: This tool currently does not work properly due to recent updates on the GTFOBins website. A new version of the script is being developed.
+# GTFOLenam v2.0
 
 <img src="image.png" width="500" alt="GTFOLenam scanner" style="margin-left:auto;margin-right:auto">
 
 ```bash
-./gtfolenam.sh [-v] [-h] [-t=sudo,capabilities,...]
+./gtfolenam.sh [-v] [-h] [-t=sudo,suid,capabilities] [-u]
 ```
 
+**What it does**: Scans binaries with `sudo`, `SUID`, or `capabilities` and checks them against [GTFOBins](https://gtfobins.org/). If the binary is exploitable, it shows the link to the technique. Designed for CTFs and Linux audits.
 
-Personal tool for enumerating potential vectors for privilege escalation in CTFs and Linux systems.
+**How it works**: The GTFOBins database is embedded in the script. Run `./gtfolenam.sh -u` on your machine (with internet) to update it; the script **modifies itself** with the new data. Then transfer the script to the target and scan without network access.
 
-The system binaries `sudo`, `suid`, or with `capabilities` are scanned and checked if they exist on the [GTFOBins](https://gtfobins.github.io/) website. If the binary exists, a link to the information is shown.
+> The script has been almost entirely reprogrammed due to the GTFOBins website update.
 
-**Designed to work in environments where additional dependencies cannot be installed**, automatically detecting available tools on the system.
+## Features
+
+- **Offline**: unlike the previous script, scanning requires no internet connection
+- **Self-updatable**: `-u` downloads the latest database and embeds it in the script
+- **Minimal dependencies**: awk, sed (and grep only if using sudo)
+- **Sudo**: indicates whether each command requires a password (NOPASSWD) or not
 
 ## Help
 
 ```
 $ ./gtfolenam.sh -h
-Uso: ./gtfolenam.sh [-v] [-h] [-t=tipo1,tipo2,...]
+Usage: ./gtfolenam.sh [-v] [-h] [-t=type1,type2,...] [-u]
 
-Opciones:
-  -v    Modo verbose. Muestra información detallada del proceso y todos los archivos, incluso si fallan la evaluación.
-  -h    Muestra esta ayuda y termina.
-  -t    Tipo de escaneo a realizar, separado por comas, precedido por '='.
-        Opciones válidas: sudo, suid, capabilities.
-        Por defecto, se escanean todos los tipos si no se especifica.
+Options:
+  -v    Verbose mode.
+  -h    Show this help.
+  -t    Types: sudo, suid, capabilities (default: all)
+  -u    Update embedded GTFOBins data from gtfobins.org/api.json
+
+GTFOBins data is embedded for offline use.
 ```
+
+## Dependencies
+
+For **scanning**, the script looks for alternatives (busybox, common paths) when a tool is not in PATH, so you typically don't need to install dependencies; it also requires no internet connection. With **-u** (update) it also uses busybox for curl/wget and sed, but **jq or python3** are required (no alternative) to parse the JSON, plus internet access.
+
+| Use | Tools |
+|-----|-------|
+| **Scanning** | awk, sed, find, getcap (grep only if using sudo) |
+| **Update (-u)** | curl or wget, jq or python3, internet connection |
+
 ## Installation
 
-In a folder with write permissions. The script is designed to work without installing additional dependencies.
+**With wget:**
 
-### With wget (recommended)
 ```bash
 wget https://raw.githubusercontent.com/Len4m/gtfolenam/main/gtfolenam.sh && chmod +x gtfolenam.sh
 ```
 
-### With curl
+**With curl:**
+
 ```bash
 curl -O https://raw.githubusercontent.com/Len4m/gtfolenam/main/gtfolenam.sh && chmod +x gtfolenam.sh
 ```
 
-### With busybox wget
+**With busybox wget:**
+
 ```bash
-busybox wget https://raw.githubusercontent.com/Len4m/gtfolenam/main/gtfolenam.sh && chmod +x gtfolenam.sh
+busybox wget -O gtfolenam.sh https://raw.githubusercontent.com/Len4m/gtfolenam/main/gtfolenam.sh && chmod +x gtfolenam.sh
 ```
 
-### With busybox curl
+**With busybox curl:**
+
 ```bash
-busybox curl -O https://raw.githubusercontent.com/Len4m/gtfolenam/main/gtfolenam.sh && chmod +x gtfolenam.sh
+busybox curl -o gtfolenam.sh https://raw.githubusercontent.com/Len4m/gtfolenam/main/gtfolenam.sh && chmod +x gtfolenam.sh
 ```
 
-### Without download tools
-If you don't have any download tool available, you'll need to transfer the script from another system using methods such as:
-- **SCP/SFTP**: `scp gtfolenam.sh user@server:/destination/path/`
-- **Direct copy**: If you have physical access or console access, copy the script content
-- **Network transfer**: Using `nc` (netcat) or other available network tools
+**Without download tools:** transfer the script via SCP, SFTP, netcat, etc. then run:
 
-Once transferred, run:
 ```bash
 chmod +x gtfolenam.sh
 ```
 
-### Dependencies
+## Examples
 
-The script requires the following tools to function:
-- **Web download**: `curl` or `wget` (or `busybox` with these functions integrated)
-- **Text processing**: `grep` and `awk` (or `busybox` with these functions integrated)
+**Update embedded DB** (best: run on your machine, then transfer):
 
-**Note**: The script will automatically detect which tools are available on the system and use them. No additional dependencies need to be installed.
+```bash
+./gtfolenam.sh -u
+```
 
-> 💡 **For systems where you can install packages** (optional):
-> ```bash
-> $ sudo apt install curl grep gawk
-> ``` 
+**Full scan:**
 
-## Future Ideas
-- [x] Filter known binaries to eliminate unnecessary requests to GTFOBins.
-- [x] Remove dependency on `pup`.
-- [x] Check if the `curl` or `wget` binary exists to make the request.
-- [x] Check if the `grep` or `awk` binary exists to filter the request.
-- [x] Support for `busybox` with integrated `wget`, `curl`, `grep` or `awk` for embedded systems.
-- [x] Parameter to show binaries even if they are not in GTFOBins (flag `-v`).
-- [ ] Parameter for direct execution of examples.
-- [ ] Parameter to show the user who acquires the privileges.
-- [ ] Also check binaries inside `doas`, currently not on GTFOBins.
+```bash
+./gtfolenam.sh
+```
 
-## Legal Disclaimer
+**SUID only:**
 
-This software is designed for personal use only and should be used exclusively in controlled and authorized environments. Using this tool on systems or networks without proper authorization may be illegal and violate security policies. The developer assumes no responsibility for damages, losses, or consequences resulting from its misuse or unauthorized use. Ensure compliance with all applicable local laws and regulations before using this tool.
+```bash
+./gtfolenam.sh -t suid
+```
+
+**Sudo + capabilities:**
+
+```bash
+./gtfolenam.sh -t=sudo,capabilities
+```
+
+**Verbose** (shows all binaries; non-vulnerable in green):
+
+```bash
+./gtfolenam.sh -v
+```
+
+## Excluded binaries
+
+Legitimate SUID/capabilities that are not exploitable in GTFOBins are filtered: passwd, sudo, su, chsh, chfn, gpasswd, newgrp, fusermount, mount, umount, ssh-keysign, ping, ping6, etc.
+
+## Legal disclaimer
+
+This tool is provided "as is", without warranty of any kind. It is intended exclusively for:
+- **Legitimate use** on systems you own or on which you have explicit written authorization
+- **CTFs** and authorized practice environments
+- **Security audits** under contract or permission from the system owner
+
+**Prohibited**: unauthorized access to computer systems is a criminal offense in most jurisdictions. The user is solely responsible for ensuring they have the necessary permissions before running this script.
+
+The author **assumes no responsibility** for damages, legal consequences, losses, or harm arising from misuse, illegal, or unauthorized use of this tool. Use is at the user's sole responsibility.
