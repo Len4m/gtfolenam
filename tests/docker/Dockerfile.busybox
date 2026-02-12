@@ -1,0 +1,17 @@
+# Contenedor solo-busybox: fuerzas fallback a busybox awk/sed/grep/find
+# Crear dir con solo busybox; sin symlinks awk/sed/grep/find para forzar busybox X
+FROM alpine:3.19
+
+RUN apk add --no-cache busybox libcap bash
+
+# Solo busybox - eliminar awk/sed/grep/find estándar para forzar fallback a busybox
+RUN mkdir -p /bb && cp /bin/busybox /bb/ && \
+    cd /usr/bin && rm -f awk sed grep find 2>/dev/null; true
+
+# find con SUID (busybox find en GTFOBins como suid)
+RUN cp /bb/busybox /bb/find && chmod 4755 /bb/find
+
+# PATH: /bb primero - awk/sed/grep no existen, busybox sí
+ENV PATH="/bb:/usr/bin:/bin"
+
+WORKDIR /project

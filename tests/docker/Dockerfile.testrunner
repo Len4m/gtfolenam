@@ -1,0 +1,9 @@
+# Imagen base para ejecutar tests de gtfolenam (tests 01-08, 11)
+# Incluye las herramientas que usa el script
+FROM alpine:3.19
+
+# bash, findutils, libcap (getcap). sed/awk/grep vienen en busybox base
+RUN apk add --no-cache bash findutils libcap
+
+# El proyecto se monta en /project
+WORKDIR /project

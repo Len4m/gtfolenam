@@ -1,0 +1,25 @@
+# Contenedor completo: sudo + SUID + capabilities vulnerables para tests robustos
+# - Sudo: usuario auditor puede ejecutar /usr/local/bin/find NOPASSWD
+# - SUID: /usr/local/bin/find con bit 4755
+# - Capabilities: /usr/local/bin/python con cap_setuid (setcap en runtime)
+FROM alpine:3.19
+
+RUN apk add --no-cache bash findutils libcap python3 sudo shadow util-linux
+
+# SUID: find vulnerable en GTFOBins
+RUN cp /usr/bin/find /usr/local/bin/find && chmod 4755 /usr/local/bin/find
+
+# Python para capabilities (copiamos a /usr/local/bin/python para que basename sea "python")
+RUN cp /usr/bin/python3 /usr/local/bin/python
+
+# Usuario para test sudo: puede ejecutar find con NOPASSWD
+RUN adduser -D auditor && \
+    echo 'auditor ALL=(ALL) NOPASSWD: /usr/local/bin/find' >> /etc/sudoers
+
+# Entrypoint: setcap en tmpfs (overlay2 no soporta xattr), luego runuser auditor
+# Requiere: docker run --tmpfs /cap-test:mode=0755
+COPY tests/docker/entrypoint-fulltest.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+WORKDIR /project
+ENTRYPOINT ["/entrypoint.sh"]
